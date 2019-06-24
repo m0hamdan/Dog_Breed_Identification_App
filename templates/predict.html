@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Upload</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" action="/predict">
+    {{ form.hidden_tag() }}
+    {{ form.photo }}
+    {% for error in form.photo.errors %}
+    <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+    {{ form.submit }}
+    
+</form>
+
+{% if file_path %}
+
+<h2>{{prediction}}</h2>
+<br>
+
+<img src="{{ file_path }}">
+{% endif %}
+</body>
+</html>
