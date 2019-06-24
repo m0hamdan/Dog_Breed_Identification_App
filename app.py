@@ -20,7 +20,7 @@ app.config['SECRET_KEY'] = 'I have a dream222 333'
 #configure_uploads(app, photos)
 #patch_request_class(app)  # set maximum file size, default is 16MB
 
-model  = DogModel()
+
 
 class UploadForm(FlaskForm):
     photo = FileField(validators=[FileAllowed(['jpg', 'png'], u'Image only!'), FileRequired(u'File was empty!')])
@@ -36,6 +36,7 @@ def predict():
 
         #filename = photos.save(form.photo.data)
         #file_url = photos.url(filename)
+        model  = DogModel()
         if(True):
             f = form.photo.data
             filename = secure_filename(f.filename)
