@@ -48,7 +48,7 @@ def predict():
         
         #model  = DogModel()
         #full_filename = os.path.join('uploads', 'Airedale_terrier_00164.jpg')
-        prediction = model.predict('./static/images/Anatolian_shepherd_dog_00665.jpg')#'./static/images/Airedale_terrier_00163.jpg'
+        prediction = model.predict(file_path)#'./static/images/Airedale_terrier_00163.jpg'
         #return redirect(url_for('prediction'))
         return render_template('predict.html', form=form,file_path=file_path,prediction=prediction)
 
