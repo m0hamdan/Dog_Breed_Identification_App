@@ -69,7 +69,7 @@ def home(name = None):
 def get_data():
     return app.send_static_file("data.json")
 
-if __name__ == "__main__":
-  app.run( port=8000, debug=False, host='localhost')
+#if __name__ == "__main__":
+#  app.run( port=8000, debug=False, host='localhost')
 
 
