@@ -8,7 +8,7 @@ from glob import glob
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 from keras.applications.resnet50 import ResNet50, preprocess_input
-import cv2 
+from cv2 import cvtColor,CascadeClassifier,COLOR_BGR2GRAY,imread
 '''
 Flask uses multiple threads. The problem you are running into is because the tensorflow model is not loaded and used in the same thread. One workaround is to force tensorflow to use the gloabl default graph .
 '''
@@ -20,7 +20,7 @@ class DogModel:
   def __init__(self):
     
     self.model = load_model('./model/model_Resnet50_final.h5')
-    self.face_cascade = cv2.CascadeClassifier('./haarcascades/haarcascade_frontalface_alt.xml')
+    self.face_cascade = CascadeClassifier('./haarcascades/haarcascade_frontalface_alt.xml')
     self.resnet50_model_include_top_false =ResNet50(weights='imagenet', include_top=False)
     self.resnet50_model =ResNet50(weights='imagenet')
     self.graph = tf.get_default_graph()
@@ -188,8 +188,8 @@ class DogModel:
 
   # returns "True" if face is detected in image stored at img_path
   def face_detector(self,img_path):
-    img = cv2.imread(img_path)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = imread(img_path)
+    gray = cvtColor(img, COLOR_BGR2GRAY)
     faces = self.face_cascade.detectMultiScale(gray)
     return len(faces) > 0
   def ResNet50_predict_labels(self,img_path):
