@@ -23,10 +23,11 @@ app.config['SECRET_KEY'] = 'I have a dream222 333'
 
 
 class UploadForm(FlaskForm):
-    photo = FileField(validators=[FileAllowed(['jpg', 'png'], u'Image only!'), FileRequired(u'File was empty!')])
-    submit = SubmitField(u'Upload')
+    photo = FileField(validators=[FileAllowed(['jpg', 'png','jpeg'], u'Image only!'), FileRequired(u'File was empty!')],label="Select dog or human image")
+    #submit = SubmitField(u'Upload and classify')
 
-
+model  = DogModel()
+@app.route("/")
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     form = UploadForm()
@@ -36,7 +37,7 @@ def predict():
 
         #filename = photos.save(form.photo.data)
         #file_url = photos.url(filename)
-        model  = DogModel()
+       
         if(True):
             f = form.photo.data
             filename = secure_filename(f.filename)
@@ -54,21 +55,21 @@ def predict():
 
     return render_template('predict.html', form=form)
 
-@app.route("/")
-@app.route("/hello/<name>")
-def home(name = None):
+#@app.route("/")
+#@app.route("/hello/<name>")
+#def home(name = None):
     #return redirect(url_for('upload'))
 
  
-    return render_template(
-        "hello_there.html",
-        name=name,
-        date=datetime.now()
-    )
+#    return render_template(
+#        "hello_there.html",
+#        name=name,
+#        date=datetime.now()
+#    )
 
-@app.route("/api/data")
-def get_data():
-    return app.send_static_file("data.json")
+#@app.route("/api/data")
+#def get_data():
+#    return app.send_static_file("data.json")
 
 #if __name__ == "__main__":
 #  app.run( port=8000, debug=False, host='localhost')

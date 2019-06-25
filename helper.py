@@ -190,6 +190,7 @@ class DogModel:
     with self.graph.as_default():
       bottleneck_feature = self.resnet50_model.predict(preprocess_input(img))
       predicted_vector = self.model.predict(bottleneck_feature)
+      return self.dog_names[np.argmax(predicted_vector)]
     #K.clear_session()
     result = np.where(predicted_vector == np.amax(predicted_vector))
     retVal = []

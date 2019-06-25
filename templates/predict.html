@@ -1,24 +1,30 @@
-<html>
-<head>
-<title>Upload</title>
-</head>
-<body>
-<form method="post" enctype="multipart/form-data" action="/predict">
+{% extends "master.html" %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data" action="/predict" class="form-inline">
+    
     {{ form.hidden_tag() }}
+    <div class="form-group mx-sm-3 mb-2">
     {{ form.photo }}
     {% for error in form.photo.errors %}
     <span style="color: red;">{{ error }}</span>
     {% endfor %}
-    {{ form.submit }}
+    </div>
+    <!--{{ form.submit }}-->
+    <button type="submit" class="btn btn-primary mb-2">Upload and classify</button>
     
 </form>
 
 {% if file_path %}
 
-<h2>{{prediction}}</h2>
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Dog detected!</h4>
+   
+    <hr>
+    The predecited dog breed is : <b>{{prediction}}</b>
+  </div>
 <br>
 
 <img src="{{ file_path }}">
 {% endif %}
-</body>
-</html>
+{% endblock %}
