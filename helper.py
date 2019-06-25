@@ -20,7 +20,7 @@ class DogModel:
   def __init__(self):
     
     self.model = load_model('./model/model_Resnet50_final.h5')
-    self.face_cascade = CascadeClassifier('./haarcascades/haarcascade_frontalface_alt.xml')
+    #self.face_cascade = CascadeClassifier('./haarcascades/haarcascade_frontalface_alt.xml')
     self.resnet50_model_include_top_false =ResNet50(weights='imagenet', include_top=False)
     self.resnet50_model =ResNet50(weights='imagenet')
     self.graph = tf.get_default_graph()
