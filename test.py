@@ -7,7 +7,7 @@ from helper import DogModel
 
 
 model = DogModel()
-print(model.predict('./static/images/Airedale_terrier_00163.jpg'))
+print(model.detect_dog_human('./static/images/Afghan_hound_3.jpeg'))
 def load_dataset(path):
     data = load_files(path)
     dog_files = np.array(data['filenames'])

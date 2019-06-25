@@ -35,22 +35,20 @@ def predict():
    
     if form.validate_on_submit():
 
-        #filename = photos.save(form.photo.data)
-        #file_url = photos.url(filename)
        
-        if(True):
-            f = form.photo.data
-            filename = secure_filename(f.filename)
-            #name = hashlib.md5('admin' + str(time.time())).hexdigest()[:15]
-            file_path = os.path.join(
-                'static', 'images', filename
-            )
-            f.save(file_path)
+       
         
-        #model  = DogModel()
-        #full_filename = os.path.join('uploads', 'Airedale_terrier_00164.jpg')
-        prediction = model.predict(file_path)#'./static/images/Airedale_terrier_00163.jpg'
-        #return redirect(url_for('prediction'))
+        f = form.photo.data
+        filename = secure_filename(f.filename)
+        #name = uuid.uuid4().hex
+        file_path = os.path.join(
+            'static', 'images', filename
+        )
+        f.save(file_path)
+        
+       
+        prediction = model.detect_dog_human(file_path)
+        
         return render_template('predict.html', form=form,file_path=file_path,prediction=prediction)
 
     return render_template('predict.html', form=form)
@@ -71,7 +69,7 @@ def predict():
 #def get_data():
 #    return app.send_static_file("data.json")
 
-#if __name__ == "__main__":
-#  app.run( port=8000, debug=False, host='localhost')
+if __name__ == "__main__":
+  app.run( port=8000, debug=False, host='localhost')
 
 
