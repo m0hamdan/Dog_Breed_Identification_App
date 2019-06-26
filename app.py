@@ -50,7 +50,7 @@ def predict():
     return render_template('predict.html', form=form)
 
 
-
+## Uncomment the below to run locally
 #if __name__ == "__main__":
 #  app.run( port=8000, debug=False, host='localhost')
 
