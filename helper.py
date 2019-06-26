@@ -2,7 +2,6 @@ import os
 from keras.models import load_model
 from keras.preprocessing import image 
 import numpy as np
-from extract_bottleneck_features import *
 from keras.applications.resnet50 import preprocess_input, decode_predictions
 from glob import glob
 import tensorflow as tf
@@ -162,15 +161,14 @@ class DogModel:
   def predict(self,img_path):
     img = self.path_to_tensor(img_path)
     
-    
-    # extract bottleneck features
-    # obtain predicted vector
-    
+   
     with self.graph.as_default():
+      # extract bottleneck features
       bottleneck_feature = self.resnet50_model_include_top_false.predict(preprocess_input(img))
+      # obtain predicted vector
       predicted_vector = self.model.predict(bottleneck_feature)
       return self.dog_names[np.argmax(predicted_vector)]
-    #K.clear_session()
+    
     result = np.where(predicted_vector == np.amax(predicted_vector))
     retVal = []
     for x in result:

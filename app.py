@@ -13,12 +13,8 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_cl
 
 app = Flask(__name__)
 #app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'I have a dream222 333'
-#app.config['UPLOADED_PHOTOS_DEST'] = os.getcwd()
+app.config['SECRET_KEY'] = 'BYg352ZiVVafzG1Frwsj'
 
-#photos = UploadSet('photos', IMAGES)
-#configure_uploads(app, photos)
-#patch_request_class(app)  # set maximum file size, default is 16MB
 
 
 
@@ -53,21 +49,7 @@ def predict():
 
     return render_template('predict.html', form=form)
 
-#@app.route("/")
-#@app.route("/hello/<name>")
-#def home(name = None):
-    #return redirect(url_for('upload'))
 
- 
-#    return render_template(
-#        "hello_there.html",
-#        name=name,
-#        date=datetime.now()
-#    )
-
-#@app.route("/api/data")
-#def get_data():
-#    return app.send_static_file("data.json")
 
 #if __name__ == "__main__":
 #  app.run( port=8000, debug=False, host='localhost')
