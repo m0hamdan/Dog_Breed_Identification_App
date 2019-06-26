@@ -10,6 +10,7 @@
 4. [Instructions](#instructions)
 5. [Licensing](#licensing)
 6. [Acknowledgements](#ack)
+7. [Demo](#demo)
 
 ### Project Motivation:<a name="motivation"></a>
 
@@ -41,4 +42,7 @@ None
 
 ### Acknowledgements <a name="ack"></a>
 1. Udacity for providing the dogs images
+
+### Demo <a name="demo"></a>
+https://dog-breed.azurewebsites.net
 
