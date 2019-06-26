@@ -1,6 +1,7 @@
 # Dog Breed Classifier
 
 <br/>
+
 ### Table of Contents
 
 1. [Dependencies](#depend)
@@ -18,13 +19,13 @@ Write an CNN Algorithm for a Dog Identification App, given an image of a dog, th
 refer to requirements.txt
 
 ### Content: <a name="files"></a>
--** model directory:**
+1. ** model directory:**
         *model_Resnet50_final.h5: A saved model that contains the model architecture and weight, created using the code in the jupyter notebook
--** static
+2. ** static
         * containes static images
--** templates
-        * the html templates
--** dog_app.ipynb
+3. ** templates
+        * the html templates (master.html and predict.html)
+4. ** dog_app.ipynb
         * A jupyter notebook file that contains the god breed identification algorithm
 
 ### Instructions:<a name="instructions"></a>
