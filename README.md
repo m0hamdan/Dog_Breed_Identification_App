@@ -16,7 +16,12 @@
 
 ### Project Motivation:<a name="motivation"></a>
 
-Develop an CNN algorithm that will accept any dog image and return an estimate of the dog's breed. If human is detected, it will provide an estimate of the most resembling dog breed. If neither dog or human face is detected the algorithm will return an error.
+This project is part of Udacity Data Scientist Nanodegree program and I'll develop an CNN algorithm that will accept any dog image and return an estimate of the dog's breed. If human is detected, it will provide an estimate of the most resembling dog breed. If neither dog or human face is detected the algorithm will return an error.
+
+The project consitutes of 2 parts:
+1. The Jupyter notebook which includes all of the implemented algorithms and approaches
+2. Flask we app which uses the saved model created through the jupyter notebook to perform the dog breed identification on uploaded photos
+
 
 The following libraries were used in building the dog breed identification algorithm:
 1. Keras (Tensorflow high level API)
@@ -33,14 +38,14 @@ refer to requirements.txt
 
 
 ### Content <a name="files"></a>
-1. model directory:
-        - model_Resnet50_final.h5: A saved model that contains the model architecture and weight, created using the code in the jupyter notebook
-2. static
-        - containes static images
-3. templates
-        - the html templates (master.html and predict.html)
-4. dog_app.ipynb
-        - A jupyter notebook file that contains the god breed identification algorithm
+1. dog_app.ipynb
+        - A jupyter notebook file that contains the god breed identification algorithm, here will find the source code of the algorithms
+2. model directory:
+        - model_Resnet50_final.h5: The saved model that contains the model architecture and weight, created using the code in the jupyter notebook
+3. static
+        - contains static images used by the Flask web app
+4. templates
+        - the html templates used for the Flask web application(master.html and predict.html)
 5. helper.py
         - A python file contains the dog or human identification algorithm, it loads the saved model from the model folder
 6. app.py
@@ -68,29 +73,29 @@ refer to requirements.txt
 
 3. Dog breed classification:
 
-In this part, after a dog is detected in an image we want to be able to identify it's breed.
+    In this part, after a dog is detected in an image we want to be able to identify it's breed.
 
-The following models were applied to find out the best approach:
+    The following models were applied to find out the best approach:
 
-- Create a CNN to classify dog breed from scratch 
-    Training a CNN model that's built from scratch gave us a test accuracy of 8.9% which is better than a random guess but still no an acceptable result.
-    ![model architecture](/screenshots/scratch_arch.PNG)
+    - Create a CNN to classify dog breed from scratch 
+        Training a CNN model that's built from scratch gave us a test accuracy of 8.9% which is better than a random guess but still no an acceptable result.
+        ![model architecture](/screenshots/scratch_arch.PNG)
 
-- Use a CNN to classify Dog Breeds
-    Here we are going to train a CNN using transfer learning using the pre-trained VGG-16 model where the last convolutional output of the model is fed as input to our model.
-    So we only need to train the fully connected layer that we added to the VGG-16 model and this resulted in reduced training time without sacrificing accuracy.
+    - Use a CNN to classify Dog Breeds
+        Here we are going to train a CNN using transfer learning using the pre-trained VGG-16 model where the last convolutional output of the model is fed as input to our model.
+        So we only need to train the fully connected layer that we added to the VGG-16 model and this resulted in reduced training time without sacrificing accuracy.
 
-   The achieved test accuracy was ~43%, a big mprovement compared to the model we built from scratch.
+        The achieved test accuracy was ~43%, a big mprovement compared to the model we built from scratch.
 
-   ![model architecture](/screenshots/VGG16_arch.PNG)
+    ![model architecture](/screenshots/VGG16_arch.PNG)
 
- - Create a CNN to classify dog breeds using Transfer Learning
-    Similar to the above step we will use transfer learning to a CNN model but we'll try to achieve at least 60% accuracy on the test data.
-    For this purpose we are going to use Resnet50 pre-trained model and modify it's architecture by adding our custom fully connected layer.
+    - Create a CNN to classify dog breeds using Transfer Learning
+        Similar to the above step we will use transfer learning to a CNN model but we'll try to achieve at least 60% accuracy on the test data.
+        For this purpose we are going to use Resnet50 pre-trained model and modify it's architecture by adding our custom fully connected layer.
 
-    After several test I was able to reach accuracy of ~81% which is a huge improvement and acceptable metric for his project.
+        After several test I was able to reach accuracy of ~81% which is a huge improvement and acceptable metric for his project.
 
-    ![model architecture](/screenshots/Resnet50_arch.PNG)
+        ![model architecture](/screenshots/Resnet50_arch.PNG)
 
 4. Algorithm
 
