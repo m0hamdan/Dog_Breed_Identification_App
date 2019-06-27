@@ -33,22 +33,22 @@ refer to requirements.txt
 
 
 ### Content <a name="files"></a>
-1. ** model directory:**
-        *model_Resnet50_final.h5: A saved model that contains the model architecture and weight, created using the code in the jupyter notebook
-2. ** static
-        * containes static images
-3. ** templates
-        * the html templates (master.html and predict.html)
-4. ** dog_app.ipynb
-        * A jupyter notebook file that contains the god breed identification algorithm
-5. ** helper.py
-        * A python file contains the dog or human identification algorithm, it loads the saved model from the model folder
-6. ** app.py
-        * this is the main flask python file that is responsible for routing and rendering html templates
-7. ** requirements.txt
-        * lists all the dependecies
-8. ** test.py
-        * a test file to test the algorithm locally that will instantiate the model and try to predict the breed of a supplied image
+1. model directory:
+        - model_Resnet50_final.h5: A saved model that contains the model architecture and weight, created using the code in the jupyter notebook
+2. static
+        - containes static images
+3. templates
+        - the html templates (master.html and predict.html)
+4. dog_app.ipynb
+        - A jupyter notebook file that contains the god breed identification algorithm
+5. helper.py
+        - A python file contains the dog or human identification algorithm, it loads the saved model from the model folder
+6. app.py
+        - this is the main flask python file that is responsible for routing and rendering html templates
+7. requirements.txt
+        - lists all the dependecies
+8. test.py
+        - a test file to test the algorithm locally that will instantiate the model and try to predict the breed of a supplied image
 
 ### Analysis <a name="analysis"></a>
 1. Face detection:
@@ -100,7 +100,7 @@ The following models were applied to find out the best approach:
 
     Testing the algorthim seems to work as expected, not all dog breeds were detected, also it can't detect multiple breeds in a single image.
 
-    ![Image description](/Resnet50_arch.PNG/detection.PNG)
+    ![Image description](/screenshots/detection.PNG)
 
     To improve our results, the below points can be considered:
     - Increase the training set size
@@ -123,7 +123,7 @@ The following models were applied to find out the best approach:
 None
 
 ### Acknowledgements <a name="ack"></a>
-1. Udacity for providing the dogs images
+1. Udacity for providing the dogs images and jupyter notebook walkthrough
 
 ### Demo <a name="demo"></a>
 https://dog-breed.azurewebsites.net
