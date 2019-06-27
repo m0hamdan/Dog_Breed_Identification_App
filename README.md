@@ -66,6 +66,10 @@ refer to requirements.txt
     Eventually we would use the latter model on a GPU enabled system, and OPenCV or HOG-based model where GPU is not available for the sake of performance.
     In the notebook I'm going to use the HOG-based model.
 
+    For fun, I've also implemented another version of the face detector function that overlays a dog filter if  human face is detected.
+
+    ![model architecture](/screenshots/scratch_arch.PNG)
+
 2. Dog detection:
 
     To detect whether a dog is present in the supplied image ReseNet-50 pre-trained model was used which can identify 1000 categories.
@@ -103,14 +107,15 @@ refer to requirements.txt
 
 5. Testing
 
-    Testing the algorthim seems to work as expected, not all dog breeds were detected, also it can't detect multiple breeds in a single image.
+    Testing the algorthim seems to work as expected, not all dog breeds were detected however, also it can't detect multiple breeds in a single image.
 
     ![Image description](/screenshots/detection.PNG)
 
-    To improve our results, the below points can be considered:
+    The output is acceptable in a demo but not in production, to improve our results, the below points can be considered:
     - Increase the training set size
     - Apply data augmentation
     - Use Regional-CNN or YOLO algorithms to detect multiple objects in a single image
+    - For the dog filter to better fit the human face, consider using Facial keypoints dataset available [here](https://www.kaggle.com/c/facial-keypoints-detection/data)
 
 
 
