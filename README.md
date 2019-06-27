@@ -68,7 +68,7 @@ refer to requirements.txt
 
     For fun, I've also implemented another version of the face detector function that overlays a dog filter if  human face is detected.
 
-    ![model architecture](/screenshots/scratch_arch.PNG)
+    ![face detection](/screenshots/detection_with_filter.PNG)
 
 2. Dog detection:
 
